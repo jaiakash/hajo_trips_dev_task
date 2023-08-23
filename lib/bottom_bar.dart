@@ -37,7 +37,8 @@ class _NavigationState extends State<Navigation> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.car_rental),
+            selectedIcon: Icon(Icons.local_taxi),
+            icon: Icon(Icons.local_taxi_outlined),
             label: 'Book a Vehicle',
           ),
           NavigationDestination(
