@@ -31,26 +31,33 @@ class _DaybyDayScreenState extends State<DaybyDayScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0), // Adjust button padding
+                          horizontal: 5.0), // Adjust button padding
+                      backgroundColor: _currentDay == day
+                          ? const Color.fromARGB(255, 3, 58, 104)
+                          : null, // Highlight color
                     ),
                     onPressed: () {
-                      setState(
-                        () {
-                          _currentDay = day;
-                        },
-                      );
+                      setState(() {
+                        _currentDay = day;
+                      });
                     },
-                    child: Text('Day $day'),
+                    child: Text(
+                      'Day $day',
+                      style: TextStyle(
+                        color: _currentDay == day ? Colors.white : Colors.black,
+                        // Adjust text color based on highlight
+                      ),
+                    ),
                   ),
                 );
               },
             ),
           ),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 5),
         Expanded(
           child: SingleChildScrollView(
             child: DayWidget(currentDay: _currentDay),

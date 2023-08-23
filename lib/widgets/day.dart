@@ -13,6 +13,7 @@ class DayWidget extends StatefulWidget {
 
 class _DayWidgetState extends State<DayWidget> {
   List _items = [];
+  List<int> _hiddenPlaces = [];
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/data.json');
@@ -66,79 +67,106 @@ class _DayWidgetState extends State<DayWidget> {
                           city["places"].asMap().entries.map<Widget>((entry) {
                         int index = entry.key;
                         var place = entry.value;
-                        return Column(
-                          children: [
-                            index != 0
-                                ? Column(
-                                    children: [
-                                      const SizedBox(height: 10),
-                                      Container(
-                                        height: 1,
-                                        decoration: const BoxDecoration(
-                                          border: Border(
-                                            left: BorderSide(
-                                              color: Colors.blue,
-                                              width: 1,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 40),
-                                    ],
-                                  )
-                                : const SizedBox(),
-                            Card(
-                              child: Column(
+                        bool isHidden = _hiddenPlaces.contains(index);
+
+                        return isHidden
+                            ? const SizedBox() // Don't show hidden places
+                            : Column(
                                 children: [
-                                  Image.network(
-                                    place["image"],
-                                    width: double.infinity,
-                                    height: 150,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  ListTile(
-                                    title: Text(place["placename"]),
-                                    subtitle: Text(place["description"]),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                            foregroundColor: Colors.white,
-                                            backgroundColor:
-                                                const Color.fromARGB(255, 4,
-                                                    156, 226), // Text color
-                                          ),
-                                          child: const Text('Add to itinerary'),
+                                  index != 0
+                                      ? Column(
+                                          children: [
+                                            const SizedBox(height: 10),
+                                            Container(
+                                              height: 1,
+                                              decoration: const BoxDecoration(
+                                                border: Border(
+                                                  left: BorderSide(
+                                                    color: Colors.blue,
+                                                    width: 1,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 30),
+                                          ],
+                                        )
+                                      : const SizedBox(),
+                                  Card(
+                                    child: Column(
+                                      children: [
+                                        Image.network(
+                                          place["image"],
+                                          width: double.infinity,
+                                          height: 150,
+                                          fit: BoxFit.cover,
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: ElevatedButton(
-                                          onPressed: () {
-                                            openGoogleMaps(place["placename"]);
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                            foregroundColor: Colors.white,
-                                            backgroundColor:
-                                                const Color.fromARGB(255, 4,
-                                                    156, 226), // Text color
-                                          ),
-                                          child: const Text('Open Maps'),
+                                        ListTile(
+                                          title: Text(place["placename"]),
+                                          subtitle: Text(place["description"]),
                                         ),
-                                      ),
-                                    ],
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            TextButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  if (isHidden) {
+                                                    _hiddenPlaces.remove(index);
+                                                  } else {
+                                                    _hiddenPlaces.add(index);
+                                                  }
+                                                });
+                                              },
+                                              child: const Icon(
+                                                Icons.delete_outline,
+                                                color: Color.fromARGB(
+                                                    255, 3, 58, 104),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              style: ElevatedButton.styleFrom(
+                                                foregroundColor: Colors.white,
+                                                backgroundColor:
+                                                    const Color.fromARGB(
+                                                        255, 3, 58, 104),
+                                              ),
+                                              child: const Text(
+                                                  'Tours from \$100'),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                openGoogleMaps(
+                                                    place["placename"]);
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                foregroundColor: Colors.white,
+                                                backgroundColor:
+                                                    const Color.fromARGB(
+                                                        255, 3, 58, 104),
+                                              ),
+                                              child: const Text(
+                                                  'Set as Starting Location'),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
-                              ),
-                            ),
-                          ],
-                        );
+                              );
                       }).toList(),
                     ),
                   ],
