@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajo_trips_dev_task/widgets/day.dart';
 
 class DaybyDayScreen extends StatefulWidget {
   const DaybyDayScreen({super.key});
@@ -8,7 +9,7 @@ class DaybyDayScreen extends StatefulWidget {
 }
 
 class _DaybyDayScreenState extends State<DaybyDayScreen> {
-  int _currentPage = 1;
+  int _currentDay = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +18,11 @@ class _DaybyDayScreenState extends State<DaybyDayScreen> {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(7, (index) {
+          // TODO UI Fix for 7 days
+          children: List.generate(4, (index) {
             final day = index + 1;
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -29,7 +31,7 @@ class _DaybyDayScreenState extends State<DaybyDayScreen> {
                 ),
                 onPressed: () {
                   setState(() {
-                    _currentPage = day;
+                    _currentDay = day;
                   });
                 },
                 child: Text('Day $day'),
@@ -38,12 +40,7 @@ class _DaybyDayScreenState extends State<DaybyDayScreen> {
           }),
         ),
         const SizedBox(height: 20),
-        Center(
-          child: Text(
-            'Current Day: $_currentPage',
-            style: const TextStyle(fontSize: 24),
-          ),
-        ),
+        DayWidget(currentDay: _currentDay),
       ],
     );
   }
