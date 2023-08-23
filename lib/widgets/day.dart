@@ -36,8 +36,8 @@ class _DayWidgetState extends State<DayWidget> {
     Future<void> openGoogleMaps(String place) async {
       final String mapUrl = 'https://www.google.com/maps?q=$place';
       final Uri url = Uri.parse(mapUrl);
-      if (await canLaunch(url.toString())) {
-        await launch(url.toString());
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url);
       } else {
         throw 'Could not launch browser';
       }
@@ -48,35 +48,96 @@ class _DayWidgetState extends State<DayWidget> {
         _items.isNotEmpty
             ? Card(
                 key: ValueKey(city["cityname"]),
-                color: Colors.amber.shade100,
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text(city["cityname"]),
+                      title: Center(
+                        child: Text(
+                          city["cityname"],
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                     Column(
-                      children: city["places"].map<Widget>((place) {
-                        return Card(
-                          child: Column(
-                            children: [
-                              Image.network(
-                                place["image"], // Replace with your image URL
-                                width: double.infinity,
-                                height: 150,
-                                fit: BoxFit.cover,
+                      children:
+                          city["places"].asMap().entries.map<Widget>((entry) {
+                        int index = entry.key;
+                        var place = entry.value;
+                        return Column(
+                          children: [
+                            index != 0
+                                ? Column(
+                                    children: [
+                                      const SizedBox(height: 10),
+                                      Container(
+                                        height: 1,
+                                        decoration: const BoxDecoration(
+                                          border: Border(
+                                            left: BorderSide(
+                                              color: Colors.blue,
+                                              width: 1,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 40),
+                                    ],
+                                  )
+                                : const SizedBox(),
+                            Card(
+                              child: Column(
+                                children: [
+                                  Image.network(
+                                    place["image"],
+                                    width: double.infinity,
+                                    height: 150,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  ListTile(
+                                    title: Text(place["placename"]),
+                                    subtitle: Text(place["description"]),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            foregroundColor: Colors.white,
+                                            backgroundColor:
+                                                const Color.fromARGB(255, 4,
+                                                    156, 226), // Text color
+                                          ),
+                                          child: const Text('Add to itinerary'),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            openGoogleMaps(place["placename"]);
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            foregroundColor: Colors.white,
+                                            backgroundColor:
+                                                const Color.fromARGB(255, 4,
+                                                    156, 226), // Text color
+                                          ),
+                                          child: const Text('Open Maps'),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              ListTile(
-                                title: Text(place["placename"]),
-                                subtitle: Text(place["description"]),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  openGoogleMaps(place["placename"]);
-                                },
-                                child: const Text('View on Google Maps'),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         );
                       }).toList(),
                     ),

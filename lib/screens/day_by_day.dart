@@ -15,32 +15,47 @@ class _DaybyDayScreenState extends State<DaybyDayScreen> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // TODO UI Fix for 7 days
-          children: List.generate(4, (index) {
-            final day = index + 1;
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+        SingleChildScrollView(
+          scrollDirection: Axis
+              .horizontal, // Allow scrolling horizontally if buttons overflow
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              7,
+              (index) {
+                final day = index + 1;
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0), // Adjust button padding
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          _currentDay = day;
+                        },
+                      );
+                    },
+                    child: Text('Day $day'),
                   ),
-                ),
-                onPressed: () {
-                  setState(() {
-                    _currentDay = day;
-                  });
-                },
-                child: Text('Day $day'),
-              ),
-            );
-          }),
+                );
+              },
+            ),
+          ),
         ),
         const SizedBox(height: 20),
-        DayWidget(currentDay: _currentDay),
+        Expanded(
+          child: SingleChildScrollView(
+            child: DayWidget(currentDay: _currentDay),
+          ),
+        ),
       ],
     );
   }

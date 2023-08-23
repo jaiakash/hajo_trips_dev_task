@@ -16,6 +16,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": 12.345,
           "longitude": -67.89
+        },
+        {
+          "placename": "Sunset Promenade",
+          "description": "A scenic waterfront walkway offering stunning views of the setting sun over the sea.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 13.789,
+          "longitude": -68.901
         }
       ]
     },
@@ -35,6 +42,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": 34.567,
           "longitude": -78.901
+        },
+        {
+          "placename": "Botanical Haven",
+          "description": "A botanical garden featuring a diverse array of plants from around the world, organized in themed sections.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 44.123,
+          "longitude": -91.234
         }
       ]
     },
@@ -54,6 +68,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": 33.6839,
           "longitude": -117.7947
+        },
+        {
+          "placename": "Sunset Beach",
+          "description": "A tranquil beach with soft sand and stunning sunset views over the ocean horizon.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 26.123,
+          "longitude": -79.567
         }
       ]
     },
@@ -73,6 +94,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": 48.8566,
           "longitude": 2.3522
+        },
+        {
+          "placename": "Verdant Lakeside",
+          "description": "A peaceful lakeside area with lush vegetation and picnic spots, perfect for a weekend retreat.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 51.335,
+          "longitude": -0.098
         }
       ]
     },
@@ -92,6 +120,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": -22.9068,
           "longitude": -43.1729
+        },
+        {
+          "placename": "Harborfront Market",
+          "description": "A bustling market along the harbor, featuring local artisans' crafts, fresh seafood, and more.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": -33.8705,
+          "longitude": 151.207
         }
       ]
     },
@@ -111,6 +146,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": 51.1657,
           "longitude": 10.4515
+        },
+        {
+          "placename": "Whispering Grove",
+          "description": "A secluded grove with rare and ancient trees, known for their soothing whispers in the breeze.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 37.7701,
+          "longitude": -122.4225
         }
       ]
     },
@@ -130,6 +172,13 @@
           "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
           "latitude": 40.7128,
           "longitude": -74.006
+        },
+        {
+          "placename": "Eternal Gardens",
+          "description": "A serene garden with rare and exotic flora, offering a peaceful retreat from the city's hustle and bustle.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 51.504,
+          "longitude": -0.131
         }
       ]
     }

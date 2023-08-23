@@ -9,7 +9,7 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,10 @@ class _NavigationState extends State<Navigation> {
       ),
       body: <Widget>[
         Container(
-          color: Colors.red,
           alignment: Alignment.center,
           child: const Text('Home Page'),
         ),
         Container(
-          color: Colors.green,
           alignment: Alignment.center,
           child: const Text('Book a Vehicle Page'),
         ),
