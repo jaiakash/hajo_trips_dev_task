@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
 
 class DayWidget extends StatefulWidget {
@@ -31,6 +32,17 @@ class _DayWidgetState extends State<DayWidget> {
   @override
   Widget build(BuildContext context) {
     final city = _items.isNotEmpty ? _items[widget.currentDay - 1] : {};
+
+    Future<void> openGoogleMaps(String place) async {
+      final String mapUrl = 'https://www.google.com/maps?q=$place';
+      final Uri url = Uri.parse(mapUrl);
+      if (await canLaunch(url.toString())) {
+        await launch(url.toString());
+      } else {
+        throw 'Could not launch browser';
+      }
+    }
+
     return Column(
       children: [
         _items.isNotEmpty
@@ -45,9 +57,25 @@ class _DayWidgetState extends State<DayWidget> {
                     Column(
                       children: city["places"].map<Widget>((place) {
                         return Card(
-                          child: ListTile(
-                            title: Text(place["placename"]),
-                            subtitle: Text(place["description"]),
+                          child: Column(
+                            children: [
+                              Image.network(
+                                place["image"], // Replace with your image URL
+                                width: double.infinity,
+                                height: 150,
+                                fit: BoxFit.cover,
+                              ),
+                              ListTile(
+                                title: Text(place["placename"]),
+                                subtitle: Text(place["description"]),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  openGoogleMaps(place["placename"]);
+                                },
+                                child: const Text('View on Google Maps'),
+                              ),
+                            ],
                           ),
                         );
                       }).toList(),

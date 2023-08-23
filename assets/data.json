@@ -5,11 +5,17 @@
       "places": [
         {
           "placename": "Golden Plaza",
-          "description": "Aurelia's central square surrounded by historic buildings and bustling cafes."
+          "description": "Aurelia's central square surrounded by historic buildings and bustling cafes.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 123.456,
+          "longitude": -78.901
         },
         {
           "placename": "Crystal Park",
-          "description": "A serene park with shimmering ponds, perfect for a relaxing afternoon."
+          "description": "A serene park with shimmering ponds, perfect for a relaxing afternoon.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 12.345,
+          "longitude": -67.89
         }
       ]
     },
@@ -18,11 +24,17 @@
       "places": [
         {
           "placename": "Cascade Falls",
-          "description": "A stunning waterfall surrounded by lush greenery, offering hiking trails and picnicking spots."
+          "description": "A stunning waterfall surrounded by lush greenery, offering hiking trails and picnicking spots.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 45.678,
+          "longitude": -90.123
         },
         {
           "placename": "Skyline Observatory",
-          "description": "An observatory at the city's highest point, providing panoramic views of Cascadia's skyline."
+          "description": "An observatory at the city's highest point, providing panoramic views of Cascadia's skyline.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 34.567,
+          "longitude": -78.901
         }
       ]
     },
@@ -31,11 +43,17 @@
       "places": [
         {
           "placename": "Marine Pier",
-          "description": "A bustling pier with shops, restaurants, and opportunities for boating and fishing."
+          "description": "A bustling pier with shops, restaurants, and opportunities for boating and fishing.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 25.7617,
+          "longitude": -80.1918
         },
         {
           "placename": "Aquatic Museum",
-          "description": "An interactive museum showcasing the diverse marine life found in Oceana Bay's waters."
+          "description": "An interactive museum showcasing the diverse marine life found in Oceana Bay's waters.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 33.6839,
+          "longitude": -117.7947
         }
       ]
     },
@@ -44,11 +62,17 @@
       "places": [
         {
           "placename": "Botanical Gardens",
-          "description": "A sprawling garden with a vast collection of rare plants and themed landscapes."
+          "description": "A sprawling garden with a vast collection of rare plants and themed landscapes.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 51.5074,
+          "longitude": -0.1278
         },
         {
           "placename": "Historic District",
-          "description": "Wander through cobblestone streets lined with well-preserved colonial-era buildings."
+          "description": "Wander through cobblestone streets lined with well-preserved colonial-era buildings.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 48.8566,
+          "longitude": 2.3522
         }
       ]
     },
@@ -57,11 +81,17 @@
       "places": [
         {
           "placename": "Starlight Beach",
-          "description": "A sandy beach known for its crystal-clear waters and vibrant nightlife."
+          "description": "A sandy beach known for its crystal-clear waters and vibrant nightlife.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": -33.8688,
+          "longitude": 151.2093
         },
         {
           "placename": "Celestial Tower",
-          "description": "An iconic tower offering breathtaking views of the city and the ocean beyond."
+          "description": "An iconic tower offering breathtaking views of the city and the ocean beyond.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": -22.9068,
+          "longitude": -43.1729
         }
       ]
     },
@@ -70,11 +100,17 @@
       "places": [
         {
           "placename": "Enchanted Forest",
-          "description": "A magical forest with winding paths, hidden waterfalls, and whimsical creatures."
+          "description": "A magical forest with winding paths, hidden waterfalls, and whimsical creatures.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 37.7749,
+          "longitude": -122.4194
         },
         {
           "placename": "Twilight Lake",
-          "description": "A tranquil lake where visitors can enjoy boating and watch the sunset amidst nature."
+          "description": "A tranquil lake where visitors can enjoy boating and watch the sunset amidst nature.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 51.1657,
+          "longitude": 10.4515
         }
       ]
     },
@@ -83,11 +119,17 @@
       "places": [
         {
           "placename": "Royal Castle",
-          "description": "A majestic castle with opulent interiors, surrounded by beautifully landscaped gardens."
+          "description": "A majestic castle with opulent interiors, surrounded by beautifully landscaped gardens.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 51.5074,
+          "longitude": -0.1278
         },
         {
           "placename": "Artisan Alley",
-          "description": "A bustling street filled with local artisans' shops, showcasing unique crafts and artworks."
+          "description": "A bustling street filled with local artisans' shops, showcasing unique crafts and artworks.",
+          "image": "https://www.planete-energies.com/sites/default/files/styles/full_width_desktop_940x529/public/migrated_files/images/thumbnails/image/moscow.jpg",
+          "latitude": 40.7128,
+          "longitude": -74.006
         }
       ]
     }
