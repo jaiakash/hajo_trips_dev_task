@@ -15,7 +15,7 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bottom Navigation Bar'),
+        title: const Text('Hajo Trips'),
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -56,7 +56,7 @@ class _NavigationState extends State<Navigation> {
         ),
         Container(
           alignment: Alignment.center,
-          child: DaybyDay(),
+          child: const DaybyDayScreen(),
         ),
       ][currentPageIndex],
     );
