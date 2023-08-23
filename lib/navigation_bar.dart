@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-
-class BottomBar extends StatelessWidget {
-  const BottomBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: Navigation());
-  }
-}
+import 'package:hajo_trips_dev_task/screens/day_by_day.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -22,6 +14,9 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Bottom Navigation Bar'),
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -60,9 +55,8 @@ class _NavigationState extends State<Navigation> {
           child: const Text('Book a Vehicle Page'),
         ),
         Container(
-          color: Colors.blue,
           alignment: Alignment.center,
-          child: const Text('Page 3'),
+          child: DaybyDay(),
         ),
       ][currentPageIndex],
     );
