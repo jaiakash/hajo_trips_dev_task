@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hajo_trips_dev_task/widgets/buttons.dart';
 import 'dart:convert';
 
+import 'package:hajo_trips_dev_task/widgets/buttons.dart';
 import 'package:hajo_trips_dev_task/widgets/spacer.dart';
 
 class DayWidget extends StatefulWidget {
@@ -28,7 +28,6 @@ class _DayWidgetState extends State<DayWidget> {
   @override
   void initState() {
     super.initState();
-    // Call the readJson method when the app starts
     readJson();
   }
 
@@ -55,63 +54,66 @@ class _DayWidgetState extends State<DayWidget> {
                       ),
                     ),
                     Column(
-                      children:
-                          city["places"].asMap().entries.map<Widget>((entry) {
-                        int index = entry.key;
-                        var place = entry.value;
-                        bool isHidden = _hiddenPlaces.contains(index);
+                      children: city["places"].asMap().entries.map<Widget>(
+                        (entry) {
+                          int index = entry.key;
+                          var place = entry.value;
+                          bool isHidden = _hiddenPlaces.contains(index);
 
-                        return isHidden
-                            ? const SizedBox()
-                            : Column(
-                                children: [
-                                  index != 0
-                                      ? const TimeDistanceSpacer()
-                                      : const SizedBox(),
-                                  Card(
-                                    child: Column(
-                                      children: [
-                                        Image.network(
-                                          place["image"],
-                                          width: double.infinity,
-                                          height: 150,
-                                          fit: BoxFit.cover,
-                                        ),
-                                        ListTile(
-                                          title: Text(place["placename"]),
-                                          subtitle: Text(place["description"]),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            TextButton(
-                                              onPressed: () {
-                                                setState(() {
-                                                  if (isHidden) {
-                                                    _hiddenPlaces.remove(index);
-                                                  } else {
-                                                    _hiddenPlaces.add(index);
-                                                  }
-                                                });
-                                              },
-                                              child: const Icon(
-                                                Icons.delete_outline,
-                                                color: Color.fromARGB(
-                                                    255, 3, 58, 104),
+                          return isHidden
+                              ? const SizedBox()
+                              : Column(
+                                  children: [
+                                    index != 0
+                                        ? const TimeDistanceSpacer()
+                                        : const SizedBox(),
+                                    Card(
+                                      child: Column(
+                                        children: [
+                                          Image.network(
+                                            place["image"],
+                                            width: double.infinity,
+                                            height: 150,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          ListTile(
+                                            title: Text(place["placename"]),
+                                            subtitle:
+                                                Text(place["description"]),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    if (isHidden) {
+                                                      _hiddenPlaces
+                                                          .remove(index);
+                                                    } else {
+                                                      _hiddenPlaces.add(index);
+                                                    }
+                                                  });
+                                                },
+                                                child: const Icon(
+                                                  Icons.delete_outline,
+                                                  color: Color.fromARGB(
+                                                      255, 3, 58, 104),
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        const TourButtons()
-                                      ],
+                                            ],
+                                          ),
+                                          const TourButtons()
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              );
-                      }).toList(),
+                                  ],
+                                );
+                        },
+                      ).toList(),
                     ),
                   ],
                 ),
