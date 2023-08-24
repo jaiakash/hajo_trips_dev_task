@@ -58,9 +58,9 @@ class _DayWidgetState extends State<DayWidget> {
                         (entry) {
                           int index = entry.key;
                           var place = entry.value;
-                          bool isHidden = _hiddenPlaces.contains(index);
+                          bool isDeleted = _hiddenPlaces.contains(index);
 
-                          return isHidden
+                          return isDeleted
                               ? const SizedBox()
                               : Column(
                                   children: [
@@ -69,44 +69,91 @@ class _DayWidgetState extends State<DayWidget> {
                                         : const SizedBox(),
                                     Card(
                                       child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Image.network(
-                                            place["image"],
-                                            width: double.infinity,
+                                          Container(
                                             height: 150,
-                                            fit: BoxFit.cover,
+                                            width: double.infinity,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.vertical(
+                                                      top: Radius.circular(8)),
+                                              child: Image.network(
+                                                place["image"],
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
-                                          ListTile(
-                                            title: Text(place["placename"]),
-                                            subtitle:
-                                                Text(place["description"]),
+                                          Padding(
+                                            padding: const EdgeInsets.all(16),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  place["placename"],
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                  ),
+                                                ),
+                                                const SizedBox(height: 8),
+                                                Text(
+                                                  place["description"],
+                                                  style: const TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              TextButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    if (isHidden) {
-                                                      _hiddenPlaces
-                                                          .remove(index);
-                                                    } else {
-                                                      _hiddenPlaces.add(index);
-                                                    }
-                                                  });
-                                                },
-                                                child: const Icon(
-                                                  Icons.delete_outline,
+                                          const Divider(height: 0),
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 12, horizontal: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                TextButton.icon(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      if (isDeleted) {
+                                                        _hiddenPlaces
+                                                            .remove(index);
+                                                      } else {
+                                                        _hiddenPlaces
+                                                            .add(index);
+                                                      }
+                                                    });
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.delete_outline,
+                                                    color: Color.fromARGB(
+                                                        255, 3, 58, 104),
+                                                  ),
+                                                  label: Text(
+                                                    isDeleted
+                                                        ? "Undo Delete"
+                                                        : "Delete",
+                                                    style: const TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 3, 58, 104),
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Icon(
+                                                  Icons.arrow_forward,
                                                   color: Color.fromARGB(
                                                       255, 3, 58, 104),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                          const TourButtons()
+                                          const TourButtons(),
                                         ],
                                       ),
                                     ),
