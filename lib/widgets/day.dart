@@ -72,7 +72,7 @@ class _DayWidgetState extends State<DayWidget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             height: 150,
                                             width: double.infinity,
                                             child: ClipRRect(
@@ -91,19 +91,40 @@ class _DayWidgetState extends State<DayWidget> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  place["placename"],
-                                                  style: const TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 8),
-                                                Text(
-                                                  place["description"],
-                                                  style: const TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 14,
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return AlertDialog(
+                                                          title: Text("About: " +
+                                                              place[
+                                                                  "placename"]),
+                                                          content: Text(place[
+                                                              "description"]),
+                                                          actions: <Widget>[
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                  "Close"),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    place["placename"],
+                                                    style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18,
+                                                    ),
                                                   ),
                                                 ),
                                               ],
