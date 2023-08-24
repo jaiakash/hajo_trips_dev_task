@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hajo_trips_dev_task/widgets/spacer.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:hajo_trips_dev_task/widgets/buttons.dart';
 import 'dart:convert';
+
+import 'package:hajo_trips_dev_task/widgets/spacer.dart';
 
 class DayWidget extends StatefulWidget {
   final int currentDay;
@@ -34,16 +35,6 @@ class _DayWidgetState extends State<DayWidget> {
   @override
   Widget build(BuildContext context) {
     final city = _items.isNotEmpty ? _items[widget.currentDay - 1] : {};
-
-    Future<void> openGoogleMaps(String place) async {
-      final String mapUrl = 'https://www.google.com/maps?q=$place';
-      final Uri url = Uri.parse(mapUrl);
-      if (await canLaunchUrl(url)) {
-        await launchUrl(url);
-      } else {
-        throw 'Could not launch browser';
-      }
-    }
 
     return Column(
       children: [
@@ -114,39 +105,7 @@ class _DayWidgetState extends State<DayWidget> {
                                             ),
                                           ],
                                         ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            ElevatedButton(
-                                              onPressed: () {},
-                                              style: ElevatedButton.styleFrom(
-                                                foregroundColor: Colors.white,
-                                                backgroundColor:
-                                                    const Color.fromARGB(
-                                                        255, 3, 58, 104),
-                                              ),
-                                              child: const Text(
-                                                  'Tours from \$100'),
-                                            ),
-                                            ElevatedButton(
-                                              onPressed: () {
-                                                openGoogleMaps(
-                                                    place["placename"]);
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                foregroundColor: Colors.white,
-                                                backgroundColor:
-                                                    const Color.fromARGB(
-                                                        255, 3, 58, 104),
-                                              ),
-                                              child: const Text(
-                                                  'Set as Starting Location'),
-                                            ),
-                                          ],
-                                        ),
+                                        const TourButtons()
                                       ],
                                     ),
                                   ),
