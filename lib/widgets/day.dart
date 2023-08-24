@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hajo_trips_dev_task/widgets/spacer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
 
@@ -13,7 +14,7 @@ class DayWidget extends StatefulWidget {
 
 class _DayWidgetState extends State<DayWidget> {
   List _items = [];
-  List<int> _hiddenPlaces = [];
+  final List<int> _hiddenPlaces = [];
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/data.json');
@@ -70,27 +71,11 @@ class _DayWidgetState extends State<DayWidget> {
                         bool isHidden = _hiddenPlaces.contains(index);
 
                         return isHidden
-                            ? const SizedBox() // Don't show hidden places
+                            ? const SizedBox()
                             : Column(
                                 children: [
                                   index != 0
-                                      ? Column(
-                                          children: [
-                                            const SizedBox(height: 10),
-                                            Container(
-                                              height: 1,
-                                              decoration: const BoxDecoration(
-                                                border: Border(
-                                                  left: BorderSide(
-                                                    color: Colors.blue,
-                                                    width: 1,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 30),
-                                          ],
-                                        )
+                                      ? const TimeDistanceSpacer()
                                       : const SizedBox(),
                                   Card(
                                     child: Column(
